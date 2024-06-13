@@ -15,11 +15,11 @@ const showEmpty = computed(() => !lead.contacts.length)
         <template #icon><UserOutlined /></template> </a-avatar
     ></span>
     <span>{{ lead.contacts[0].name }}</span>
-    <a href="tel:{{lead.contacts[0].phone}}">
+    <a href="tel:{{lead.contacts[0].phone}}" v-if="lead.contacts[0].phone">
       <PhoneOutlined />
     </a>
     <a-divider type="vertical" v-if="showMailPhoneDivider" />
-    <a href="mailto:{{lead.contacts[0].email}}">
+    <a href="mailto:{{lead.contacts[0].email}}" v-if="lead.contacts[0].email">
       <MailOutlined />
     </a>
     <span v-if="showEmpty">Нет контактов</span>
