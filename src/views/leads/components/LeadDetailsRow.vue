@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Lead } from '@/types'
-import { UserOutlined } from '@ant-design/icons-vue'
+import { MailOutlined, PhoneOutlined, UserOutlined } from '@ant-design/icons-vue'
 import { computed } from 'vue'
 
 const lead = defineProps<Lead>()
@@ -15,9 +15,13 @@ const showEmpty = computed(() => !lead.contacts.length)
         <template #icon><UserOutlined /></template> </a-avatar
     ></span>
     <span>{{ lead.contacts[0].name }}</span>
-    <span>{{ lead.contacts[0].phone }}</span>
+    <a href="tel:{{lead.contacts[0].phone}}">
+      <PhoneOutlined />
+    </a>
     <a-divider type="vertical" v-if="showMailPhoneDivider" />
-    <span>{{ lead.contacts[0].email }}</span>
+    <a href="mailto:{{lead.contacts[0].email}}">
+      <MailOutlined />
+    </a>
     <span v-if="showEmpty">Нет контактов</span>
   </a-space>
 </template>

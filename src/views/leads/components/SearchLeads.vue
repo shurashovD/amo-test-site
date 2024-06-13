@@ -4,8 +4,6 @@ import { WarningOutlined } from '@ant-design/icons-vue'
 
 const { onSearch } = defineProps<{ onSearch(query?: string): void }>()
 
-console.log(onSearch)
-
 const value = ref<string>('')
 
 let timeoutId: ReturnType<typeof setTimeout> | null = null
